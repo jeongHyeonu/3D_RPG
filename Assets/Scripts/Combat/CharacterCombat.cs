@@ -22,6 +22,8 @@ public class CharacterCombat : MonoBehaviour
 
     CharacterStat myStat;
 
+    public ParticleSystem ps;
+
     private void Awake()
     {
         myStat = GetComponent<CharacterStat>();
@@ -60,6 +62,10 @@ public class CharacterCombat : MonoBehaviour
 
     public void Hitted()
     {
+        if (ps != null)
+        {
+            ps.Play();
+        }
         OnHited?.Invoke();
     }
 
